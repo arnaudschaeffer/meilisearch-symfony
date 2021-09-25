@@ -57,7 +57,7 @@ abstract class Aggregator implements NormalizableInterface
     /**
      * Returns an entity id from the provided object id.
      */
-    public static function getEntityIdFromObjectId(string $objectId): string
+    public static function getEntityIdFromObjectId(string $objectId)
     {
         return $objectId;
     }
@@ -67,7 +67,7 @@ abstract class Aggregator implements NormalizableInterface
      *
      * @throws EntityNotFoundInObjectID
      */
-    public static function getEntityClassFromObjectID(string $objectId): string
+    public static function getEntityClassFromObjectID(string $objectId)
     {
         $type = explode('::', $objectId)[0];
 
@@ -81,7 +81,7 @@ abstract class Aggregator implements NormalizableInterface
     /**
      * {@inheritdoc}
      */
-    public function normalize(NormalizerInterface $normalizer, ?string $format = null, array $context = []): array
+    public function normalize(NormalizerInterface $normalizer, $format = null, array $context = [])
     {
         return array_merge(['objectID' => $this->objectID], $normalizer->normalize($this->entity, $format, $context));
     }
